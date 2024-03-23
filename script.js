@@ -70,6 +70,11 @@ const cont = document.querySelector("#Cont");
 let After = document.querySelector("#After");
 let After0 = document.querySelector("#After0");
 let prompted = "";
+let scorePlayer= 0;
+let scoreComputer = 0;
+let computerScore = document.querySelector("#computerScore")
+let playerScore = document.querySelector("#playerScore")
+let winner = document.querySelector("#winner")
 cont.addEventListener('click', (Event) => {
     let target = Event.target;
     switch(target.id){
@@ -92,6 +97,18 @@ cont.addEventListener('click', (Event) => {
     After.textContent = "";
     playGame()
     prompted = ""
+    if (scoreComputer >= 5 && scorePlayer <5){
+        winner.textContent = "THE FINAL WINNER IS THE COMPUTER! " 
+    }
+    else if (scoreComputer < 5 && scorePlayer >=5) {
+        winner.textContent = "THE FINAL WINNER IS THE PLAYER! " 
+    }
+    else if (scoreComputer == 5 && scorePlayer ==5) {
+        winner.textContent = "IT IS A TIE" 
+    }
+    else {
+        
+    }
     
 })
 
@@ -122,10 +139,14 @@ function playGame() {
     }
     if (cpuScore1 > score2) {
         After.textContent = "The Total Winer Is " + "The Computer";
+        scoreComputer += 1;
+        computerScore.textContent = scoreComputer;
         
     }
     else if (cpuScore1 < score2) {
         After.textContent = "The Total Winer Is " + "You";
+        scorePlayer += 1;
+        playerScore.textContent = scorePlayer;
        
     }
     else {

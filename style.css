@@ -5,12 +5,48 @@
     flex-wrap: wrap;
 }
 
-.ScoreBoard {
+.ScoreBoard ,.ScoreBoard1, .ScoreBoard2{
     min-width: 50%;
-    min-height: 50%;
-    border-width: 5px;
-    border-color: black;
+    min-height: 100px;
+    
+    max-width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.ScoreBoard {
+    border-radius: 10px;
+    border:3px solid;
+    border-color: black;
+    
+}
+
+
+.Score{
+    font-size: 40px;
+}
+
+
+.ScoreBoard1{ 
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.ScoreBoard2{ 
+    
+    gap: 10px;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.part2 {
+    justify-self: flex-end;
+}
+.flex {
+    display: flex;
+    justify-content: center;
 }
