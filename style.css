@@ -1,0 +1,16 @@
+.Conta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ScoreBoard {
+    min-width: 50%;
+    min-height: 50%;
+    border-width: 5px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

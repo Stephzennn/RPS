@@ -27,13 +27,13 @@ function game(playerSelection, computerSelection){
     let tieString = "It is a Tie";
     if (playerSelection == "R" ){
         if (computerSelection == "S"){
-            answer = winString + "Rock" + beats + "Scissors ";
+            answer = winString + "Rock" + beats + " Scissors ";
         }
         else if (computerSelection == "R"){
             answer = tieString;
         }
         else {
-            answer = loseString + "Paper" + beats + "Rock";
+            answer = loseString + "Paper" + beats +  " Rock";
         }
     }
     else if (playerSelection == "S" ){
@@ -41,20 +41,20 @@ function game(playerSelection, computerSelection){
             answer = tieString;
         }
         else if (computerSelection == "R"){
-            answer = loseString + "Rock" + beats + "Scissors";
+            answer = loseString + "Rock" + beats + " Scissors";
         }
         else {
-            answer = winString +  "Scissors " + beats + "Paper ";
+            answer = winString +  "Scissors " + beats + " Paper ";
         }
 
     }
     else  {
         if (computerSelection == "S"){
-            answer = loseString + "Scissors" + beats + "Paper ";
+            answer = loseString + "Scissors" + beats + " Paper ";
             
         }
         else if (computerSelection =="R"){
-            answer = winString +  "Paper " + beats + "Rock ";
+            answer = winString +  "Paper " + beats + " Rock ";
             
         }
         else {
@@ -65,37 +65,74 @@ function game(playerSelection, computerSelection){
     return answer;
 }
 
+
+const cont = document.querySelector("#Cont");
+let After = document.querySelector("#After");
+let After0 = document.querySelector("#After0");
+let prompted = "";
+cont.addEventListener('click', (Event) => {
+    let target = Event.target;
+    switch(target.id){
+        case "R": 
+            console.log("R")
+            prompted = "R";
+            break;
+        case "P":
+            prompted = "P";
+            console.log("P")
+            break;
+        case "S":
+            prompted = "S";
+            console.log("s")
+            break;
+        default:
+            break;
+     
+    }
+    After.textContent = "";
+    playGame()
+    prompted = ""
+    
+})
+
+
 function playGame() {
     let cpuScore1 = 0;
     let score2 = 0;
     let g;
-    for(let x = 0; x < 5; x++){
-        g = game((prompt("Enter Rock , Paper, Scissor")).toUpperCase(),getComputerChoice() );
+    let number = 1;
+    for(let x = 0; x < number; x++){
+
+        g = game(prompted,getComputerChoice() );
         if (g[4] == "W" ){
             score2 ++;
-            console.log(g);
+            After0.textContent = g;
+            
         }
         else if (g[4] == "L" ){
             cpuScore1++;
-            console.log(g);
+            After0.textContent = g;
+            
         }
         else{
-            console.log(g);
+            After0.textContent = g;
+            
         }
     
     }
     if (cpuScore1 > score2) {
-        console.log("The Total Winer Is " + "The Computer" );
+        After.textContent = "The Total Winer Is " + "The Computer";
+        
     }
     else if (cpuScore1 < score2) {
-        console.log("The Total Winer Is " + "You");
+        After.textContent = "The Total Winer Is " + "You";
+       
     }
     else {
-        console.log("It Is A Tie");
+        After.textContent = "It Is A Tie";
+        
     }
     
 
     
 }
-
-playGame()
